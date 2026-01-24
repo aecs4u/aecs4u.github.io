@@ -15,6 +15,9 @@
         .animate-fadeIn {
             animation: fadeIn 0.8s ease-out;
         }
+        [data-lang]:not([data-lang=""]) {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -28,11 +31,22 @@
                     </div>
                     <h1 class="text-2xl font-bold text-gray-800">AECS4U</h1>
                 </div>
-                <nav class="hidden md:flex space-x-6">
-                    <a href="https://aecs4u.it" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Website</a>
-                    <a href="https://aecs4u.it/for-professionals" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Per Professionisti</a>
-                    <a href="https://aecs4u.it/contact" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Contatti</a>
-                </nav>
+                <div class="flex items-center space-x-6">
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="https://aecs4u.com" class="text-gray-600 hover:text-blue-600 transition-colors duration-300" data-lang="it">Sito Web</a>
+                        <a href="https://aecs4u.com" class="text-gray-600 hover:text-blue-600 transition-colors duration-300" data-lang="en">Website</a>
+                        <a href="https://aecs4u.com/for-professionals" class="text-gray-600 hover:text-blue-600 transition-colors duration-300" data-lang="it">Per Professionisti</a>
+                        <a href="https://aecs4u.com/for-professionals" class="text-gray-600 hover:text-blue-600 transition-colors duration-300" data-lang="en">For Professionals</a>
+                        <a href="https://aecs4u.com/contact" class="text-gray-600 hover:text-blue-600 transition-colors duration-300" data-lang="it">Contatti</a>
+                        <a href="https://aecs4u.com/contact" class="text-gray-600 hover:text-blue-600 transition-colors duration-300" data-lang="en">Contact</a>
+                    </nav>
+                    <div class="relative">
+                        <select id="languageSelector" class="bg-gray-100 text-gray-800 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
+                            <option value="it">🇮🇹 IT</option>
+                            <option value="en">🇬🇧 EN</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -43,23 +57,24 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative">
             <div class="max-w-5xl mx-auto text-center animate-fadeIn">
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">
-                    La Piattaforma Completa<br>
-                    <span class="text-blue-600">per le Aste Immobiliari</span><br>
-                    in Italia
+                    <span data-lang="it">La Piattaforma Completa<br><span class="text-blue-600">per le Aste Immobiliari</span><br>in Italia</span>
+                    <span data-lang="en">The Complete Platform<br><span class="text-blue-600">for Real Estate Auctions</span><br>in Italy</span>
                 </h2>
                 <p class="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                    Risparmia fino al <span class="font-semibold text-blue-600">40%</span> sul prezzo di mercato con il nostro database di oltre
-                    <span class="font-semibold text-blue-600">350.000 aste</span> verificate
+                    <span data-lang="it">Risparmia fino al <span class="font-semibold text-blue-600">40%</span> sul prezzo di mercato con il nostro database di oltre <span class="font-semibold text-blue-600">350.000 aste</span> verificate</span>
+                    <span data-lang="en">Save up to <span class="font-semibold text-blue-600">40%</span> on market price with our database of over <span class="font-semibold text-blue-600">350,000</span> verified auctions</span>
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://aecs4u.it/product-auction-search" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
-                        Inizia la Ricerca
+                    <a href="https://aecs4u.com/product-auction-search" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
+                        <span data-lang="it">Inizia la Ricerca</span>
+                        <span data-lang="en">Start Searching</span>
                         <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
                     </a>
-                    <a href="https://aecs4u.it/chi-siamo" class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-gray-800 font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 border border-gray-200">
-                        Chi Siamo
+                    <a href="https://aecs4u.com/chi-siamo" class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-gray-800 font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 border border-gray-200">
+                        <span data-lang="it">Chi Siamo</span>
+                        <span data-lang="en">About Us</span>
                     </a>
                 </div>
             </div>
@@ -72,15 +87,15 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
                 <div class="transform hover:scale-105 transition-transform duration-300">
                     <div class="text-5xl font-bold text-blue-600 mb-2">350K+</div>
-                    <p class="text-gray-700 text-lg">Aste nel Database</p>
+                    <p class="text-gray-700 text-lg"><span data-lang="it">Aste nel Database</span><span data-lang="en">Auctions in Database</span></p>
                 </div>
                 <div class="transform hover:scale-105 transition-transform duration-300">
                     <div class="text-5xl font-bold text-blue-600 mb-2">40%</div>
-                    <p class="text-gray-700 text-lg">Risparmio Medio</p>
+                    <p class="text-gray-700 text-lg"><span data-lang="it">Risparmio Medio</span><span data-lang="en">Average Savings</span></p>
                 </div>
                 <div class="transform hover:scale-105 transition-transform duration-300">
                     <div class="text-5xl font-bold text-blue-600 mb-2">15+</div>
-                    <p class="text-gray-700 text-lg">Anni di Esperienza</p>
+                    <p class="text-gray-700 text-lg"><span data-lang="it">Anni di Esperienza</span><span data-lang="en">Years of Experience</span></p>
                 </div>
             </div>
         </div>
@@ -89,35 +104,35 @@
     <!-- Services Section -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-16">I Nostri Servizi</h3>
+            <h3 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-16"><span data-lang="it">I Nostri Servizi</span><span data-lang="en">Our Services</span></h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl p-8 transform hover:-translate-y-2 transition-all duration-300">
                     <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mb-6">
                         <span class="text-3xl">🔍</span>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-800 mb-3">Ricerca Aste</h4>
-                    <p class="text-gray-600">Database completo di oltre 350.000 aste immobiliari verificate e aggiornate quotidianamente</p>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3"><span data-lang="it">Ricerca Aste</span><span data-lang="en">Auction Search</span></h4>
+                    <p class="text-gray-600"><span data-lang="it">Database completo di oltre 350.000 aste immobiliari verificate e aggiornate quotidianamente</span><span data-lang="en">Complete database of over 350,000 verified real estate auctions updated daily</span></p>
                 </div>
                 <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl p-8 transform hover:-translate-y-2 transition-all duration-300">
                     <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mb-6">
                         <span class="text-3xl">💼</span>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-800 mb-3">Software Gestionale</h4>
-                    <p class="text-gray-600">Strumenti professionali per gestire il tuo portfolio di aste e clienti in modo efficiente</p>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3"><span data-lang="it">Software Gestionale</span><span data-lang="en">Management Software</span></h4>
+                    <p class="text-gray-600"><span data-lang="it">Strumenti professionali per gestire il tuo portfolio di aste e clienti in modo efficiente</span><span data-lang="en">Professional tools to manage your auction and client portfolio efficiently</span></p>
                 </div>
                 <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl p-8 transform hover:-translate-y-2 transition-all duration-300">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mb-6">
                         <span class="text-3xl">🔌</span>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-800 mb-3">API Dati</h4>
-                    <p class="text-gray-600">Integra i nostri dati nel tuo sistema con API RESTful complete e documentate</p>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3"><span data-lang="it">API Dati</span><span data-lang="en">Data API</span></h4>
+                    <p class="text-gray-600"><span data-lang="it">Integra i nostri dati nel tuo sistema con API RESTful complete e documentate</span><span data-lang="en">Integrate our data into your system with complete and documented RESTful APIs</span></p>
                 </div>
                 <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl p-8 transform hover:-translate-y-2 transition-all duration-300">
                     <div class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mb-6">
                         <span class="text-3xl">📊</span>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-800 mb-3">Perizie Valutative</h4>
-                    <p class="text-gray-600">Valutazioni professionali degli immobili per investimenti consapevoli e sicuri</p>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3"><span data-lang="it">Perizie Valutative</span><span data-lang="en">Property Valuations</span></h4>
+                    <p class="text-gray-600"><span data-lang="it">Valutazioni professionali degli immobili per investimenti consapevoli e sicuri</span><span data-lang="en">Professional property valuations for informed and secure investments</span></p>
                 </div>
             </div>
         </div>
@@ -126,28 +141,28 @@
     <!-- Values Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-16">I Nostri Valori</h3>
+            <h3 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-16"><span data-lang="it">I Nostri Valori</span><span data-lang="en">Our Values</span></h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <div class="text-center">
                     <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="text-3xl">🎯</span>
                     </div>
-                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Trasparenza</h4>
-                    <p class="text-gray-600">Informazioni complete, accurate e aggiornate su ogni asta. Nessun costo nascosto.</p>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3"><span data-lang="it">Trasparenza</span><span data-lang="en">Transparency</span></h4>
+                    <p class="text-gray-600"><span data-lang="it">Informazioni complete, accurate e aggiornate su ogni asta. Nessun costo nascosto.</span><span data-lang="en">Complete, accurate and up-to-date information on every auction. No hidden costs.</span></p>
                 </div>
                 <div class="text-center">
                     <div class="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="text-3xl">🛡️</span>
                     </div>
-                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Affidabilità</h4>
-                    <p class="text-gray-600">15 anni di esperienza, database verificato quotidianamente e supporto tecnico 24/7.</p>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3"><span data-lang="it">Affidabilità</span><span data-lang="en">Reliability</span></h4>
+                    <p class="text-gray-600"><span data-lang="it">15 anni di esperienza, database verificato quotidianamente e supporto tecnico 24/7.</span><span data-lang="en">15 years of experience, database verified daily and 24/7 technical support.</span></p>
                 </div>
                 <div class="text-center">
                     <div class="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="text-3xl">🚀</span>
                     </div>
-                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Innovazione</h4>
-                    <p class="text-gray-600">Tecnologie avanzate per analizzare e presentare i dati in modo intuitivo e utile.</p>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3"><span data-lang="it">Innovazione</span><span data-lang="en">Innovation</span></h4>
+                    <p class="text-gray-600"><span data-lang="it">Tecnologie avanzate per analizzare e presentare i dati in modo intuitivo e utile.</span><span data-lang="en">Advanced technologies to analyze and present data in an intuitive and useful way.</span></p>
                 </div>
             </div>
         </div>
@@ -157,9 +172,10 @@
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
-                <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Open Source & Tecnologia</h3>
+                <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6"><span data-lang="it">Open Source & Tecnologia</span><span data-lang="en">Open Source & Technology</span></h3>
                 <p class="text-xl text-gray-600 mb-12">
-                    Crediamo nella trasparenza e nella collaborazione. Esplora i nostri progetti open source su GitHub.
+                    <span data-lang="it">Crediamo nella trasparenza e nella collaborazione. Esplora i nostri progetti open source su GitHub.</span>
+                    <span data-lang="en">We believe in transparency and collaboration. Explore our open source projects on GitHub.</span>
                 </p>
                 <div class="bg-white rounded-xl shadow-lg p-8">
                     <div class="flex items-center justify-center space-x-4 mb-6">
@@ -169,7 +185,8 @@
                         <a href="https://github.com/aecs4u" class="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-300">github.com/aecs4u</a>
                     </div>
                     <p class="text-gray-600">
-                        Scopri i nostri progetti, contribuisci al codice e fai parte della nostra community di sviluppatori.
+                        <span data-lang="it">Scopri i nostri progetti, contribuisci al codice e fai parte della nostra community di sviluppatori.</span>
+                        <span data-lang="en">Discover our projects, contribute to the code and become part of our developer community.</span>
                     </p>
                 </div>
             </div>
@@ -179,16 +196,19 @@
     <!-- CTA Section -->
     <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-700">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="text-3xl lg:text-4xl font-bold text-white mb-6">Pronto a Iniziare?</h3>
+            <h3 class="text-3xl lg:text-4xl font-bold text-white mb-6"><span data-lang="it">Pronto a Iniziare?</span><span data-lang="en">Ready to Get Started?</span></h3>
             <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-                Che tu sia un privato alla ricerca della prima casa o un professionista del settore, abbiamo la soluzione giusta per te.
+                <span data-lang="it">Che tu sia un privato alla ricerca della prima casa o un professionista del settore, abbiamo la soluzione giusta per te.</span>
+                <span data-lang="en">Whether you're an individual looking for your first home or a professional in the sector, we have the right solution for you.</span>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://aecs4u.it/product-auction-search" class="inline-flex items-center justify-center bg-white text-blue-600 font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
-                    Inizia la Ricerca
+                <a href="https://aecs4u.com/product-auction-search" class="inline-flex items-center justify-center bg-white text-blue-600 font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
+                    <span data-lang="it">Inizia la Ricerca</span>
+                    <span data-lang="en">Start Searching</span>
                 </a>
-                <a href="https://aecs4u.it/contact" class="inline-flex items-center justify-center bg-blue-800 hover:bg-blue-900 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
-                    Contattaci
+                <a href="https://aecs4u.com/contact" class="inline-flex items-center justify-center bg-blue-800 hover:bg-blue-900 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
+                    <span data-lang="it">Contattaci</span>
+                    <span data-lang="en">Contact Us</span>
                 </a>
             </div>
         </div>
@@ -200,20 +220,20 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <h5 class="text-white font-bold text-lg mb-4">AECS4U Srl</h5>
-                    <p class="text-gray-400 mb-2">La piattaforma completa per le aste immobiliari in Italia</p>
-                    <p class="text-gray-500 text-sm">Fondata nel 2008</p>
+                    <p class="text-gray-400 mb-2"><span data-lang="it">La piattaforma completa per le aste immobiliari in Italia</span><span data-lang="en">The complete platform for real estate auctions in Italy</span></p>
+                    <p class="text-gray-500 text-sm"><span data-lang="it">Fondata nel 2008</span><span data-lang="en">Founded in 2008</span></p>
                 </div>
                 <div>
-                    <h5 class="text-white font-bold text-lg mb-4">Link Utili</h5>
+                    <h5 class="text-white font-bold text-lg mb-4"><span data-lang="it">Link Utili</span><span data-lang="en">Useful Links</span></h5>
                     <ul class="space-y-2">
-                        <li><a href="https://aecs4u.it" class="hover:text-white transition-colors duration-300">Sito Web</a></li>
-                        <li><a href="https://aecs4u.it/chi-siamo" class="hover:text-white transition-colors duration-300">Chi Siamo</a></li>
-                        <li><a href="https://aecs4u.it/for-professionals" class="hover:text-white transition-colors duration-300">Per Professionisti</a></li>
-                        <li><a href="https://aecs4u.it/contact" class="hover:text-white transition-colors duration-300">Contatti</a></li>
+                        <li><a href="https://aecs4u.com" class="hover:text-white transition-colors duration-300"><span data-lang="it">Sito Web</span><span data-lang="en">Website</span></a></li>
+                        <li><a href="https://aecs4u.com/chi-siamo" class="hover:text-white transition-colors duration-300"><span data-lang="it">Chi Siamo</span><span data-lang="en">About Us</span></a></li>
+                        <li><a href="https://aecs4u.com/for-professionals" class="hover:text-white transition-colors duration-300"><span data-lang="it">Per Professionisti</span><span data-lang="en">For Professionals</span></a></li>
+                        <li><a href="https://aecs4u.com/contact" class="hover:text-white transition-colors duration-300"><span data-lang="it">Contatti</span><span data-lang="en">Contact</span></a></li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="text-white font-bold text-lg mb-4">Seguici</h5>
+                    <h5 class="text-white font-bold text-lg mb-4"><span data-lang="it">Seguici</span><span data-lang="en">Follow Us</span></h5>
                     <div class="flex space-x-4">
                         <a href="https://github.com/aecs4u" class="hover:text-white transition-colors duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -224,9 +244,56 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; 2024 AECS4U Srl. Tutti i diritti riservati.</p>
+                <p><span data-lang="it">&copy; 2024 AECS4U Srl. Tutti i diritti riservati.</span><span data-lang="en">&copy; 2024 AECS4U Srl. All rights reserved.</span></p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Language switching functionality
+        (function() {
+            const languageSelector = document.getElementById('languageSelector');
+            const html = document.documentElement;
+
+            // Get browser language or stored preference
+            function getDefaultLanguage() {
+                const stored = localStorage.getItem('language');
+                if (stored) return stored;
+
+                const browserLang = navigator.language || navigator.userLanguage;
+                return browserLang.startsWith('it') ? 'it' : 'en';
+            }
+
+            // Set language and update UI
+            function setLanguage(lang) {
+                // Update HTML lang attribute
+                html.setAttribute('lang', lang);
+
+                // Store preference
+                localStorage.setItem('language', lang);
+
+                // Update selector
+                languageSelector.value = lang;
+
+                // Show/hide content based on language
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    if (el.getAttribute('data-lang') === lang) {
+                        el.style.display = '';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+            }
+
+            // Initialize language on page load
+            const defaultLang = getDefaultLanguage();
+            setLanguage(defaultLang);
+
+            // Listen for language selector changes
+            languageSelector.addEventListener('change', function() {
+                setLanguage(this.value);
+            });
+        })();
+    </script>
 </body>
 </html>
