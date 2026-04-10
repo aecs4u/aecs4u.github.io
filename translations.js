@@ -507,5 +507,7 @@ var I18N = {
                        it: '\u00A9 2026 AECS4U Srl. Tutti i diritti riservati.',
                        fr: '\u00A9 2026 AECS4U Srl. Tous droits r\u00E9serv\u00E9s.',
                        es: '\u00A9 2026 AECS4U Srl. Todos los derechos reservados.',
-                       de: '\u00A9 2026 AECS4U Srl. Alle Rechte vorbehalten.' }
+                       de: '\u00A9 2026 AECS4U Srl. Alle Rechte vorbehalten.' },
+  footer_privacy:    { en: 'Privacy Policy',       it: 'Privacy Policy',       fr: 'Politique de confidentialit\u00E9', es: 'Pol\u00EDtica de privacidad', de: 'Datenschutz' },
+  footer_terms:      { en: 'Terms of Service',     it: 'Termini di servizio',  fr: 'Conditions d\u2019utilisation',     es: 'T\u00E9rminos de servicio',   de: 'Nutzungsbedingungen' }
 };

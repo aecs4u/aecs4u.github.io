@@ -1122,6 +1122,21 @@ img {
   font-size: 0.85rem;
 }
 
+.footer-legal {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.footer-legal a {
+  font-size: 0.8rem;
+  color: var(--slate-500);
+  transition: color var(--duration);
+}
+
+.footer-legal a:hover {
+  color: var(--teal-400);
+}
+
 .footer-links {
   display: flex;
   gap: var(--space-md);
@@ -1319,6 +1334,25 @@ img {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ─── Skip Link ─── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--teal-500);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  z-index: 1100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 /* ─── Focus ─── */

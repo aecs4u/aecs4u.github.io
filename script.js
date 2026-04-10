@@ -36,6 +36,7 @@
   }
 
   function applyTranslations(lang) {
+    if (!i18nAvailable) return;
     currentLang = lang;
     document.documentElement.lang = lang;
     storageSet('aecs4u-lang', lang);
