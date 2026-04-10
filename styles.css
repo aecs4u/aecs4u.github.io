@@ -156,18 +156,11 @@ img {
   font-size: 1.1rem;
 }
 
-.brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--teal-500), var(--teal-400));
-  color: var(--white);
-  font-weight: 800;
-  font-size: 0.75rem;
-  letter-spacing: 0.02em;
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  filter: brightness(0) invert(1);
 }
 
 .brand-text {
@@ -227,6 +220,99 @@ img {
 }
 .nav-toggle.open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── Language Switcher ─── */
+.lang-switcher {
+  position: relative;
+  margin-left: var(--space-sm);
+}
+
+.lang-current {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--slate-300);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--duration), border-color var(--duration);
+  font-family: inherit;
+}
+
+.lang-current:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.lang-flag {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-code {
+  letter-spacing: 0.04em;
+}
+
+.lang-chevron {
+  font-size: 0.55rem;
+  transition: transform var(--duration);
+}
+
+.lang-switcher.open .lang-chevron {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 160px;
+  list-style: none;
+  background: rgba(10, 22, 40, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 4px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+  z-index: 1001;
+}
+
+.lang-switcher.open .lang-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: var(--slate-400);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background var(--duration), color var(--duration);
+}
+
+.lang-option:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+}
+
+.lang-option.active {
+  color: var(--teal-400);
+  font-weight: 600;
 }
 
 /* ─── Hero ─── */
@@ -943,6 +1029,13 @@ img {
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
+  }
+
+  .lang-switcher {
+    position: absolute;
+    right: 56px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .nav-links {

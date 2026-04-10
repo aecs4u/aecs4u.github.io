@@ -1,33 +1,123 @@
 /* ═══════════════════════════════════════════════════════════
-   AECS4U GitHub Pages — Interactions
+   AECS4U GitHub Pages — Interactions & i18n
    ═══════════════════════════════════════════════════════════ */
 
 (function () {
   'use strict';
 
+  // ─── i18n Engine ───
+  var currentLang = I18N._fallback;
+
+  function detectLocale() {
+    // 1. Check localStorage for user preference
+    var stored = localStorage.getItem('aecs4u-lang');
+    if (stored && I18N._supported.indexOf(stored) !== -1) return stored;
+
+    // 2. Check browser languages
+    var langs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+    for (var i = 0; i < langs.length; i++) {
+      var code = langs[i].toLowerCase().split('-')[0];
+      if (I18N._supported.indexOf(code) !== -1) return code;
+    }
+
+    // 3. Fallback
+    return I18N._fallback;
+  }
+
+  function applyTranslations(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    localStorage.setItem('aecs4u-lang', lang);
+
+    // Update text nodes (data-i18n)
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (I18N[key] && I18N[key][lang]) {
+        el.textContent = I18N[key][lang];
+      }
+    });
+
+    // Update HTML nodes (data-i18n-html) — for content with inline markup
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-html');
+      if (I18N[key] && I18N[key][lang]) {
+        el.innerHTML = I18N[key][lang];
+      }
+    });
+
+    // Update lang switcher display
+    var codeEl = document.getElementById('lang-code');
+    var flagEl = document.getElementById('lang-flag');
+    if (codeEl) codeEl.textContent = lang.toUpperCase();
+    if (flagEl) flagEl.textContent = I18N._flags[lang] || '';
+
+    // Update active state in dropdown
+    document.querySelectorAll('.lang-option').forEach(function (opt) {
+      opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+    });
+  }
+
+  function buildLangDropdown() {
+    var dropdown = document.getElementById('lang-dropdown');
+    if (!dropdown) return;
+
+    I18N._supported.forEach(function (code) {
+      var li = document.createElement('li');
+      li.className = 'lang-option';
+      li.setAttribute('data-lang', code);
+      li.innerHTML = '<span class="lang-flag">' + I18N._flags[code] + '</span> ' + I18N._labels[code];
+      li.addEventListener('click', function (e) {
+        e.stopPropagation();
+        applyTranslations(code);
+        closeLangDropdown();
+      });
+      dropdown.appendChild(li);
+    });
+  }
+
+  function closeLangDropdown() {
+    var switcher = document.getElementById('lang-switcher');
+    if (switcher) switcher.classList.remove('open');
+  }
+
+  // Toggle dropdown
+  var langBtn = document.getElementById('lang-current');
+  if (langBtn) {
+    langBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var switcher = document.getElementById('lang-switcher');
+      switcher.classList.toggle('open');
+    });
+  }
+
+  // Close dropdown on outside click
+  document.addEventListener('click', closeLangDropdown);
+
+  // Build and apply
+  buildLangDropdown();
+  applyTranslations(detectLocale());
+
   // ─── Navigation scroll effect ───
-  const nav = document.getElementById('nav');
-  let lastScroll = 0;
+  var nav = document.getElementById('nav');
 
   function onScroll() {
-    const y = window.scrollY;
+    var y = window.scrollY;
     if (y > 40) {
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
     }
-    lastScroll = y;
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
 
   // ─── Active nav link highlight ───
-  const sections = document.querySelectorAll('.section, .hero');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  var sections = document.querySelectorAll('.section, .hero');
+  var navLinks = document.querySelectorAll('.nav-links a');
 
   function highlightNav() {
-    const scrollPos = window.scrollY + window.innerHeight * 0.35;
-    let current = '';
+    var scrollPos = window.scrollY + window.innerHeight * 0.35;
+    var current = '';
 
     sections.forEach(function (section) {
       if (section.offsetTop <= scrollPos) {
@@ -46,8 +136,8 @@
   window.addEventListener('scroll', highlightNav, { passive: true });
 
   // ─── Mobile menu toggle ───
-  const toggle = document.getElementById('nav-toggle');
-  const menu = document.getElementById('nav-links');
+  var toggle = document.getElementById('nav-toggle');
+  var menu = document.getElementById('nav-links');
 
   toggle.addEventListener('click', function () {
     toggle.classList.toggle('open');
@@ -93,7 +183,7 @@
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
 
-    animateEls.forEach(function (el, index) {
+    animateEls.forEach(function (el) {
       // Stagger cards within the same parent
       if (!el.hasAttribute('data-delay') && el.closest('.domains-grid, .featured-grid, .oss-grid, .tech-grid, .about-highlights')) {
         var siblings = el.parentNode.querySelectorAll('.animate-in');
