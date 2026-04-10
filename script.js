@@ -5,12 +5,23 @@
 (function () {
   'use strict';
 
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ─── i18n Engine ───
-  var currentLang = I18N._fallback;
+  var i18nAvailable = typeof I18N !== 'undefined' && I18N._supported;
+  var currentLang = i18nAvailable ? I18N._fallback : 'en';
+
+  function storageGet(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+  function storageSet(key, val) {
+    try { localStorage.setItem(key, val); } catch (e) { /* quota or disabled */ }
+  }
 
   function detectLocale() {
+    if (!i18nAvailable) return 'en';
     // 1. Check localStorage for user preference
-    var stored = localStorage.getItem('aecs4u-lang');
+    var stored = storageGet('aecs4u-lang');
     if (stored && I18N._supported.indexOf(stored) !== -1) return stored;
 
     // 2. Check browser languages
@@ -27,7 +38,7 @@
   function applyTranslations(lang) {
     currentLang = lang;
     document.documentElement.lang = lang;
-    localStorage.setItem('aecs4u-lang', lang);
+    storageSet('aecs4u-lang', lang);
 
     // Update text nodes (data-i18n)
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
@@ -63,14 +74,17 @@
 
     I18N._supported.forEach(function (code) {
       var li = document.createElement('li');
-      li.className = 'lang-option';
-      li.setAttribute('data-lang', code);
-      li.innerHTML = '<span class="lang-flag">' + I18N._flags[code] + '</span> ' + I18N._labels[code];
-      li.addEventListener('click', function (e) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'lang-option';
+      button.setAttribute('data-lang', code);
+      button.innerHTML = '<span class="lang-flag">' + I18N._flags[code] + '</span> ' + I18N._labels[code];
+      button.addEventListener('click', function (e) {
         e.stopPropagation();
         applyTranslations(code);
         closeLangDropdown();
       });
+      li.appendChild(button);
       dropdown.appendChild(li);
     });
   }
@@ -78,6 +92,7 @@
   function closeLangDropdown() {
     var switcher = document.getElementById('lang-switcher');
     if (switcher) switcher.classList.remove('open');
+    if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
   }
 
   // Toggle dropdown
@@ -86,7 +101,8 @@
     langBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       var switcher = document.getElementById('lang-switcher');
-      switcher.classList.toggle('open');
+      var open = switcher.classList.toggle('open');
+      langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   }
 
@@ -139,23 +155,39 @@
   var toggle = document.getElementById('nav-toggle');
   var menu = document.getElementById('nav-links');
 
-  toggle.addEventListener('click', function () {
-    toggle.classList.toggle('open');
-    menu.classList.toggle('open');
-  });
+  function closeMenu() {
+    if (!toggle || !menu) return;
+    toggle.classList.remove('open');
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      var open = toggle.classList.toggle('open');
+      menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
 
   // Close mobile menu on link click
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {
-      toggle.classList.remove('open');
-      menu.classList.remove('open');
+      closeMenu();
     });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeLangDropdown();
+      closeMenu();
+    }
   });
 
   // ─── Animate-in on scroll (Intersection Observer) ───
   var animateEls = document.querySelectorAll('.animate-in');
   var cards = document.querySelectorAll(
-    '.highlight-card, .domain-card, .featured-card, .tech-category, .oss-card, .contact-link'
+    '.proof-item, .offering-card, .highlight-card, .domain-card, .featured-card, .tech-category, .oss-card, .contact-link'
   );
 
   // Add animate-in class to cards too
@@ -173,9 +205,14 @@
           if (entry.isIntersecting) {
             var delay = entry.target.getAttribute('data-delay');
             var ms = delay ? parseInt(delay, 10) * 150 : 0;
-            setTimeout(function () {
+            var reveal = function () {
               entry.target.classList.add('visible');
-            }, ms);
+            };
+            if (reducedMotion || ms === 0) {
+              reveal();
+            } else {
+              setTimeout(reveal, ms);
+            }
             observer.unobserve(entry.target);
           }
         });
@@ -185,7 +222,7 @@
 
     animateEls.forEach(function (el) {
       // Stagger cards within the same parent
-      if (!el.hasAttribute('data-delay') && el.closest('.domains-grid, .featured-grid, .oss-grid, .tech-grid, .about-highlights')) {
+      if (!el.hasAttribute('data-delay') && el.closest('.proof-grid, .offerings-grid, .domains-grid, .featured-grid, .oss-grid, .tech-grid, .about-highlights')) {
         var siblings = el.parentNode.querySelectorAll('.animate-in');
         var idx = Array.prototype.indexOf.call(siblings, el);
         el.setAttribute('data-delay', idx);
@@ -221,7 +258,11 @@
     requestAnimationFrame(step);
   }
 
-  if ('IntersectionObserver' in window) {
+  if (reducedMotion) {
+    statNumbers.forEach(function (el) {
+      el.textContent = el.getAttribute('data-count');
+    });
+  } else if ('IntersectionObserver' in window) {
     var statsObserver = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -251,7 +292,7 @@
       var target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
       }
     });
   });
