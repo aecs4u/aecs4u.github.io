@@ -1,0 +1,18 @@
+title: AECS4U
+description: >-
+  Italian proptech and legaltech platform — real estate intelligence,
+  legal AI, e-commerce infrastructure, and scientific computing tools.
+url: "https://aecs4u.github.io"
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - README.md
+  - LICENSE
+
+plugins:
+  - jekyll-seo-tag

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AECS4U — Proptech &amp; Legaltech Platform</title>
+  <meta name="description" content="Italian proptech and legaltech platform — real estate intelligence, legal AI, e-commerce infrastructure, and scientific computing tools.">
+  <meta name="theme-color" content="#0a1628">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AECS4U — Proptech & Legaltech Platform">
+  <meta property="og:description" content="Real estate intelligence, legal AI, e-commerce infrastructure, and scientific computing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aecs4u.github.io">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-mark">A4U</span>
+        <span class="brand-text">AECS4U</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#domains">Domains</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#tech">Stack</a></li>
+        <li><a href="#open-source">Open Source</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow animate-in" data-delay="0">Proptech &middot; Legaltech &middot; Open Source</p>
+      <h1 class="hero-title animate-in" data-delay="1">
+        Building the <span class="gradient-text">intelligent layer</span><br>
+        for Italian real estate
+      </h1>
+      <p class="hero-subtitle animate-in" data-delay="2">
+        60+ repositories spanning real estate intelligence, legal AI, e-commerce infrastructure,
+        scientific computing, and open-source tooling.
+      </p>
+      <div class="hero-actions animate-in" data-delay="3">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-layer-group"></i> Explore Projects
+        </a>
+        <a href="https://github.com/aecs4u" class="btn btn-secondary" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+      <div class="hero-stats animate-in" data-delay="4">
+        <div class="stat">
+          <span class="stat-number" data-count="60">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Repositories</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="7">0</span>
+          <span class="stat-label">Domains</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="5">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Languages</span>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-hint" aria-label="Scroll down">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Who we are</p>
+        <h2 class="section-title">About AECS4U</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-lead">
+            <strong>AECS4U Srl</strong> is an Italian technology company building an integrated
+            platform for <em>real estate auctions</em>, <em>non-performing loan management</em>,
+            and <em>legal services e-commerce</em>.
+          </p>
+          <p>
+            We combine deep domain expertise in Italian property law, cadastral systems, and
+            financial regulation with modern software engineering &mdash; from Rust-based AI runtimes
+            to full-stack Python/FastAPI microservices.
+          </p>
+          <p>
+            Our repositories reflect a philosophy of building reusable, open-source components
+            wherever possible, while maintaining production-grade quality for our core platform services.
+          </p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-card">
+            <i class="fas fa-building-columns"></i>
+            <h3>Real Estate Intelligence</h3>
+            <p>Property data aggregation, cadastral viewers, auction scraping, and AI-driven valuations</p>
+          </div>
+          <div class="highlight-card">
+            <i class="fas fa-scale-balanced"></i>
+            <h3>Legal AI</h3>
+            <p>Outcome prediction, debt recovery, document OCR, and multi-platform AI assistants</p>
+          </div>
+          <div class="highlight-card">
+            <i class="fas fa-cart-shopping"></i>
+            <h3>E-Commerce Platform</h3>
+            <p>Modular microservices: cart, orders, billing, inventory, search, and notifications</p>
+          </div>
+          <div class="highlight-card">
+            <i class="fas fa-atom"></i>
+            <h3>Scientific Computing</h3>
+            <p>FEA solvers, sparse linear algebra, structural analysis &mdash; from NASA heritage to modern Rust</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ DOMAINS ═══════════════════════ -->
+  <section class="section section-alt" id="domains">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">What we build</p>
+        <h2 class="section-title">Domain Areas</h2>
+        <p class="section-subtitle">Our repositories are organized across seven core domains, each with interconnected services and tools.</p>
+      </div>
+      <div class="domains-grid">
+
+        <div class="domain-card" data-domain="realestate">
+          <div class="domain-icon"><i class="fas fa-house-chimney"></i></div>
+          <h3>Real Estate &amp; Property</h3>
+          <p>Comprehensive property intelligence platform integrating multiple data sources, cadastral systems, and AI-powered valuation.</p>
+          <ul class="domain-repos">
+            <li><a href="https://github.com/aecs4u/real-estates" target="_blank" rel="noopener"><i class="fas fa-cube"></i> real-estates</a> <span class="repo-desc">Property data aggregation from Idealista, Immobiliare.it, Casa.it</span></li>
+            <li><a href="https://github.com/aecs4u/land-registry" target="_blank" rel="noopener"><i class="fas fa-cube"></i> land-registry</a> <span class="repo-desc">Interactive Italian cadastral viewer with mapping</span></li>
+            <li><a href="https://github.com/aecs4u/property-scraper" target="_blank" rel="noopener"><i class="fas fa-cube"></i> property-scraper</a> <span class="repo-desc">Auction website scraping toolkit</span></li>
+            <li><a href="https://github.com/aecs4u/ocular" target="_blank" rel="noopener"><i class="fas fa-cube"></i> ocular</a> <span class="repo-desc">OCR platform for property document processing</span></li>
+            <li><a href="https://github.com/aecs4u/visura-api" target="_blank" rel="noopener"><i class="fas fa-cube"></i> visura-api</a> <span class="repo-desc">Automated cadastral data from SISTER portal</span></li>
+          </ul>
+          <div class="domain-tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Scrapy</span><span class="tag">GIS</span>
+          </div>
+        </div>
+
+        <div class="domain-card" data-domain="legal">
+          <div class="domain-icon"><i class="fas fa-gavel"></i></div>
+          <h3>Legal &amp; Compliance</h3>
+          <p>AI-powered legal tools for Italian proceedings, debt recovery, and regulatory compliance.</p>
+          <ul class="domain-repos">
+            <li><a href="https://github.com/aecs4u/pomata" target="_blank" rel="noopener"><i class="fas fa-cube"></i> pomata</a> <span class="repo-desc">Enterprise NPL/UTP portfolio management (78k+ LOC)</span></li>
+            <li><a href="https://github.com/aecs4u/verdict" target="_blank" rel="noopener"><i class="fas fa-cube"></i> verdict</a> <span class="repo-desc">ML platform for Italian legal outcome prediction</span></li>
+            <li><a href="https://github.com/aecs4u/reclaim-it" target="_blank" rel="noopener"><i class="fas fa-cube"></i> reclaim-it</a> <span class="repo-desc">Intelligent debt collection platform</span></li>
+            <li><a href="https://github.com/aecs4u/openclaw" target="_blank" rel="noopener"><i class="fas fa-cube"></i> openclaw</a> <span class="repo-desc">Personal AI legal assistant (multi-platform)</span></li>
+            <li><a href="https://github.com/aecs4u/codice-fiscale" target="_blank" rel="noopener"><i class="fas fa-cube"></i> codice-fiscale</a> <span class="repo-desc">Italian fiscal code encoder/decoder</span></li>
+          </ul>
+          <div class="domain-tags">
+            <span class="tag">Python</span><span class="tag">ML</span><span class="tag">Rust</span><span class="tag">NLP</span>
+          </div>
+        </div>
+
+        <div class="domain-card" data-domain="ecommerce">
+          <div class="domain-icon"><i class="fas fa-store"></i></div>
+          <h3>E-Commerce Platform</h3>
+          <p>Modular microservice architecture powering the AECS4U marketplace for real estate and legal services.</p>
+          <ul class="domain-repos">
+            <li><a href="https://github.com/aecs4u/aecs4u-admin" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-admin</a> <span class="repo-desc">Admin dashboard with CRM and analytics</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-cart" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-cart</a> <span class="repo-desc">Cart with sessions, coupons, and pricing</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-orders" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-orders</a> <span class="repo-desc">Order lifecycle and payment tracking</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-inventory" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-inventory</a> <span class="repo-desc">Stock tracking and multi-location support</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-search" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-search</a> <span class="repo-desc">Full-text search (Meilisearch / Elasticsearch)</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-billing" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-billing</a> <span class="repo-desc">Stripe-powered billing and metered usage</span></li>
+          </ul>
+          <div class="domain-tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Stripe</span><span class="tag">Clerk</span>
+          </div>
+        </div>
+
+        <div class="domain-card" data-domain="ai">
+          <div class="domain-icon"><i class="fas fa-robot"></i></div>
+          <h3>AI &amp; Assistants</h3>
+          <p>Agentic AI runtimes, multi-platform chatbots, and intelligent automation across our services.</p>
+          <ul class="domain-repos">
+            <li><a href="https://github.com/aecs4u/RustyClaw" target="_blank" rel="noopener"><i class="fas fa-cube"></i> RustyClaw</a> <span class="repo-desc">Lightweight agentic AI runtime in Rust</span></li>
+            <li><a href="https://github.com/aecs4u/zeroclaw" target="_blank" rel="noopener"><i class="fas fa-cube"></i> zeroclaw</a> <span class="repo-desc">Minimal-footprint AI assistant (100% Rust, &lt;5MB)</span></li>
+            <li><a href="https://github.com/aecs4u/microclaw" target="_blank" rel="noopener"><i class="fas fa-cube"></i> microclaw</a> <span class="repo-desc">Agentic AI for Telegram, Discord, Slack</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-assistant" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-assistant</a> <span class="repo-desc">Unified bot gateway for 17 platforms</span></li>
+            <li><a href="https://github.com/aecs4u/ai-usage-monitor" target="_blank" rel="noopener"><i class="fas fa-cube"></i> ai-usage-monitor</a> <span class="repo-desc">CLI tool tracking AI coding assistant costs</span></li>
+          </ul>
+          <div class="domain-tags">
+            <span class="tag">Rust</span><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">Multi-Agent</span>
+          </div>
+        </div>
+
+        <div class="domain-card" data-domain="finance">
+          <div class="domain-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Finance &amp; Business</h3>
+          <p>Personal finance, Italian electronic invoicing, utility tracking, and quantitative tools.</p>
+          <ul class="domain-repos">
+            <li><a href="https://github.com/aecs4u/aecs4u-finance" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-finance</a> <span class="repo-desc">AI-driven personal finance dashboard</span></li>
+            <li><a href="https://github.com/aecs4u/invoices" target="_blank" rel="noopener"><i class="fas fa-cube"></i> invoices</a> <span class="repo-desc">FatturaPA electronic invoice processing</span></li>
+            <li><a href="https://github.com/aecs4u/advisor" target="_blank" rel="noopener"><i class="fas fa-cube"></i> advisor</a> <span class="repo-desc">Financial guidance for Italian retail customers</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-energy" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-energy</a> <span class="repo-desc">Utility bill tracking and consumption analysis</span></li>
+            <li><a href="https://github.com/aecs4u/quant" target="_blank" rel="noopener"><i class="fas fa-cube"></i> quant</a> <span class="repo-desc">Quantitative finance tools and libraries</span></li>
+          </ul>
+          <div class="domain-tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Rust</span><span class="tag">XML</span>
+          </div>
+        </div>
+
+        <div class="domain-card" data-domain="infra">
+          <div class="domain-icon"><i class="fas fa-server"></i></div>
+          <h3>Infrastructure &amp; Services</h3>
+          <p>Shared packages for authentication, storage, email, analytics, and notifications across the platform.</p>
+          <ul class="domain-repos">
+            <li><a href="https://github.com/aecs4u/aecs4u-auth" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-auth</a> <span class="repo-desc">Clerk SSO + JWT auth for FastAPI</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-storage" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-storage</a> <span class="repo-desc">S3 / GCS / Azure Blob abstraction</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-email" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-email</a> <span class="repo-desc">Transactional email (SendGrid, Resend, SMTP)</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-notifications" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-notifications</a> <span class="repo-desc">Push notifications, FCM, SMS</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-analytics" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-analytics</a> <span class="repo-desc">Event tracking and funnel analytics</span></li>
+            <li><a href="https://github.com/aecs4u/aecs4u-theme" target="_blank" rel="noopener"><i class="fas fa-cube"></i> aecs4u-theme</a> <span class="repo-desc">Bootstrap 5 theme with dark mode</span></li>
+          </ul>
+          <div class="domain-tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Cloud</span>
+          </div>
+        </div>
+
+        <div class="domain-card" data-domain="scientific">
+          <div class="domain-icon"><i class="fas fa-flask-vial"></i></div>
+          <h3>Scientific Computing</h3>
+          <p>Finite element analysis, sparse solvers, and high-performance numerical libraries &mdash; heritage codes modernized with Rust.</p>
+          <ul class="domain-repos">
+            <li><a href="https://github.com/aecs4u/calculix" target="_blank" rel="noopener"><i class="fas fa-cube"></i> calculix</a> <span class="repo-desc">FEA suite with Rust solver core</span></li>
+            <li><a href="https://github.com/aecs4u/NASTRAN-95" target="_blank" rel="noopener"><i class="fas fa-cube"></i> NASTRAN-95</a> <span class="repo-desc">NASA structural analysis system</span></li>
+            <li><a href="https://github.com/aecs4u/mumps" target="_blank" rel="noopener"><i class="fas fa-cube"></i> mumps</a> <span class="repo-desc">Sparse direct solver with Python/ctypes</span></li>
+            <li><a href="https://github.com/aecs4u/SuiteSparse" target="_blank" rel="noopener"><i class="fas fa-cube"></i> SuiteSparse</a> <span class="repo-desc">Sparse linear algebra collection</span></li>
+            <li><a href="https://github.com/aecs4u/blis" target="_blank" rel="noopener"><i class="fas fa-cube"></i> blis</a> <span class="repo-desc">Optimized BLAS for AMD CPUs</span></li>
+          </ul>
+          <div class="domain-tags">
+            <span class="tag">Rust</span><span class="tag">Fortran</span><span class="tag">C</span><span class="tag">Python</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FEATURED PROJECTS ═══════════════════════ -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Highlights</p>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">A selection of our most impactful and ambitious repositories.</p>
+      </div>
+      <div class="featured-grid">
+
+        <a href="https://github.com/aecs4u/pomata" class="featured-card featured-large" target="_blank" rel="noopener">
+          <div class="featured-badge">78,000+ LOC</div>
+          <div class="featured-icon"><i class="fas fa-briefcase"></i></div>
+          <h3>Pomata</h3>
+          <p>Enterprise-grade NPL/UTP portfolio management platform. Handles non-performing loan lifecycle from acquisition through resolution with enrichment pipelines, analytics, and compliance reporting.</p>
+          <div class="featured-tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/aecs4u/real-estates" class="featured-card" target="_blank" rel="noopener">
+          <div class="featured-icon"><i class="fas fa-house-chimney-crack"></i></div>
+          <h3>Real Estates</h3>
+          <p>Property data aggregation integrating Idealista, Immobiliare.it, Casa.it with AI-powered services for valuation and enrichment.</p>
+          <div class="featured-tags">
+            <span class="tag">Python</span><span class="tag">AI</span><span class="tag">Scrapy</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/aecs4u/RustyClaw" class="featured-card" target="_blank" rel="noopener">
+          <div class="featured-icon"><i class="fas fa-microchip"></i></div>
+          <h3>RustyClaw</h3>
+          <p>Lightweight, secure agentic AI runtime written in Rust. Designed for legal AI applications with minimal memory footprint.</p>
+          <div class="featured-tags">
+            <span class="tag">Rust</span><span class="tag">LLM</span><span class="tag">Agents</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/aecs4u/verdict" class="featured-card" target="_blank" rel="noopener">
+          <div class="featured-icon"><i class="fas fa-scale-balanced"></i></div>
+          <h3>Verdict</h3>
+          <p>Machine learning platform predicting outcomes in Italian legal proceedings with GDP, COSX, and execution data enrichment.</p>
+          <div class="featured-tags">
+            <span class="tag">ML</span><span class="tag">Python</span><span class="tag">NLP</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/aecs4u/aecs4u-assistant" class="featured-card" target="_blank" rel="noopener">
+          <div class="featured-icon"><i class="fas fa-comments"></i></div>
+          <h3>AECS4U Assistant</h3>
+          <p>Unified multi-platform bot gateway supporting 17 messaging platforms with message normalization and intelligent routing.</p>
+          <div class="featured-tags">
+            <span class="tag">FastAPI</span><span class="tag">Webhooks</span><span class="tag">AI</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/aecs4u/calculix" class="featured-card" target="_blank" rel="noopener">
+          <div class="featured-icon"><i class="fas fa-cube"></i></div>
+          <h3>CalculiX</h3>
+          <p>Finite element analysis suite with a modern Rust solver core and Python tooling. Bridging heritage structural analysis with modern performance.</p>
+          <div class="featured-tags">
+            <span class="tag">Rust</span><span class="tag">Fortran</span><span class="tag">FEA</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ TECH STACK ═══════════════════════ -->
+  <section class="section section-alt" id="tech">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">How we build</p>
+        <h2 class="section-title">Technology Stack</h2>
+      </div>
+      <div class="tech-grid">
+
+        <div class="tech-category">
+          <h3><i class="fas fa-code"></i> Languages</h3>
+          <div class="tech-items">
+            <div class="tech-item"><i class="fab fa-python"></i> Python</div>
+            <div class="tech-item"><i class="fab fa-rust"></i> Rust</div>
+            <div class="tech-item"><i class="fab fa-js-square"></i> JavaScript</div>
+            <div class="tech-item"><i class="fas fa-terminal"></i> Bash</div>
+            <div class="tech-item"><i class="fas fa-code"></i> Fortran</div>
+            <div class="tech-item"><i class="fas fa-code"></i> C/C++</div>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
+          <div class="tech-items">
+            <div class="tech-item"><i class="fas fa-bolt"></i> FastAPI</div>
+            <div class="tech-item"><i class="fas fa-cog"></i> Axum</div>
+            <div class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap 5</div>
+            <div class="tech-item"><i class="fas fa-spider"></i> Scrapy</div>
+            <div class="tech-item"><i class="fas fa-cube"></i> Jinja2</div>
+            <div class="tech-item"><i class="fas fa-flask-vial"></i> Flask</div>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <h3><i class="fas fa-database"></i> Data &amp; AI</h3>
+          <div class="tech-items">
+            <div class="tech-item"><i class="fas fa-database"></i> PostgreSQL</div>
+            <div class="tech-item"><i class="fas fa-search"></i> Meilisearch</div>
+            <div class="tech-item"><i class="fas fa-search"></i> Elasticsearch</div>
+            <div class="tech-item"><i class="fas fa-brain"></i> scikit-learn</div>
+            <div class="tech-item"><i class="fas fa-brain"></i> TensorFlow</div>
+            <div class="tech-item"><i class="fas fa-table"></i> Pandas</div>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <h3><i class="fas fa-cloud"></i> Infrastructure</h3>
+          <div class="tech-items">
+            <div class="tech-item"><i class="fab fa-docker"></i> Docker</div>
+            <div class="tech-item"><i class="fab fa-aws"></i> AWS S3</div>
+            <div class="tech-item"><i class="fab fa-google"></i> GCP</div>
+            <div class="tech-item"><i class="fab fa-stripe-s"></i> Stripe</div>
+            <div class="tech-item"><i class="fas fa-envelope"></i> SendGrid</div>
+            <div class="tech-item"><i class="fas fa-key"></i> Clerk</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ OPEN SOURCE ═══════════════════════ -->
+  <section class="section" id="open-source">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Community</p>
+        <h2 class="section-title">Open Source</h2>
+        <p class="section-subtitle">Standalone tools and libraries built for the community.</p>
+      </div>
+      <div class="oss-grid">
+
+        <a href="https://github.com/aecs4u/rcompare" class="oss-card" target="_blank" rel="noopener">
+          <div class="oss-icon"><i class="fas fa-code-compare"></i></div>
+          <h3>rcompare</h3>
+          <p>High-performance file and directory comparison toolkit with Rust core, CLI, and PySide6 GUI.</p>
+        </a>
+
+        <a href="https://github.com/aecs4u/czkawka" class="oss-card" target="_blank" rel="noopener">
+          <div class="oss-icon"><i class="fas fa-broom"></i></div>
+          <h3>czkawka</h3>
+          <p>Memory-safe Rust GUI for finding and removing duplicate/temporary files.</p>
+        </a>
+
+        <a href="https://github.com/aecs4u/pandaSDMX" class="oss-card" target="_blank" rel="noopener">
+          <div class="oss-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>pandaSDMX</h3>
+          <p>Python package implementing SDMX 2.1 for statistical data and metadata exchange.</p>
+        </a>
+
+        <a href="https://github.com/aecs4u/scrapydash" class="oss-card" target="_blank" rel="noopener">
+          <div class="oss-icon"><i class="fas fa-spider"></i></div>
+          <h3>scrapydash</h3>
+          <p>Enterprise-grade web platform for managing Scrapyd crawler clusters.</p>
+        </a>
+
+        <a href="https://github.com/aecs4u/ai-usage-monitor" class="oss-card" target="_blank" rel="noopener">
+          <div class="oss-icon"><i class="fas fa-gauge-high"></i></div>
+          <h3>ai-usage-monitor</h3>
+          <p>CLI tool tracking AI coding assistant usage, costs, and trends across Claude, Cline, and Codex.</p>
+        </a>
+
+        <a href="https://github.com/aecs4u/schema-validator" class="oss-card" target="_blank" rel="noopener">
+          <div class="oss-icon"><i class="fas fa-check-double"></i></div>
+          <h3>schema-validator</h3>
+          <p>JSON schema validation tool with an interactive Panel web interface.</p>
+        </a>
+
+        <a href="https://github.com/aecs4u/get-me-the-job" class="oss-card" target="_blank" rel="noopener">
+          <div class="oss-icon"><i class="fas fa-user-tie"></i></div>
+          <h3>get-me-the-job</h3>
+          <p>Job application manager with AI-powered resume tailoring and job scraping.</p>
+        </a>
+
+        <a href="https://github.com/aecs4u/stock-my-fridge" class="oss-card" target="_blank" rel="noopener">
+          <div class="oss-icon"><i class="fas fa-basket-shopping"></i></div>
+          <h3>stock-my-fridge</h3>
+          <p>Italian supermarket deal tracker with geolocation and deal notifications.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-text">
+          <p>Interested in our platform, want to contribute to our open-source projects, or have a question about our technology?</p>
+          <div class="contact-links">
+            <a href="https://github.com/aecs4u" class="contact-link" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+              <span>github.com/aecs4u</span>
+            </a>
+            <a href="https://www.aecs4u.it" class="contact-link" target="_blank" rel="noopener">
+              <i class="fas fa-globe"></i>
+              <span>aecs4u.it</span>
+            </a>
+            <a href="mailto:info@aecs4u.it" class="contact-link">
+              <i class="fas fa-envelope"></i>
+              <span>info@aecs4u.it</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 AECS4U Srl. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="https://github.com/aecs4u" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
