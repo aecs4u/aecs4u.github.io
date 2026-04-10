@@ -7,7 +7,7 @@ var I18N = {
 
   // ─── Supported languages ───
   _supported: ['en', 'it', 'fr', 'es', 'de'],
-  _fallback: 'en',
+  _fallback: 'it',
   _labels: { en: 'English', it: 'Italiano', fr: 'Fran\u00e7ais', es: 'Espa\u00f1ol', de: 'Deutsch' },
   _flags: { en: '\uD83C\uDDEC\uD83C\uDDE7', it: '\uD83C\uDDEE\uD83C\uDDF9', fr: '\uD83C\uDDEB\uD83C\uDDF7', es: '\uD83C\uDDEA\uD83C\uDDF8', de: '\uD83C\uDDE9\uD83C\uDDEA' },
 

@@ -9,7 +9,7 @@
 
   // ─── i18n Engine ───
   var i18nAvailable = typeof I18N !== 'undefined' && I18N._supported;
-  var currentLang = i18nAvailable ? I18N._fallback : 'en';
+  var currentLang = i18nAvailable ? I18N._fallback : 'it';
 
   function storageGet(key) {
     try { return localStorage.getItem(key); } catch (e) { return null; }
