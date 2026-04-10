@@ -114,6 +114,32 @@
   buildLangDropdown();
   applyTranslations(detectLocale());
 
+  // ─── Dark mode ───
+  var darkToggle = document.getElementById('dark-toggle');
+  var darkIcon = document.getElementById('dark-icon');
+
+  function setDarkMode(dark) {
+    document.body.classList.toggle('dark', dark);
+    if (darkIcon) {
+      darkIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    storageSet('aecs4u-dark', dark ? '1' : '0');
+  }
+
+  // Detect: localStorage > system preference > light
+  var storedDark = storageGet('aecs4u-dark');
+  if (storedDark === '1') {
+    setDarkMode(true);
+  } else if (storedDark === null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    setDarkMode(true);
+  }
+
+  if (darkToggle) {
+    darkToggle.addEventListener('click', function () {
+      setDarkMode(!document.body.classList.contains('dark'));
+    });
+  }
+
   // ─── Navigation scroll effect ───
   var nav = document.getElementById('nav');
 
@@ -236,6 +262,65 @@
       el.classList.add('visible');
     });
   }
+
+  // ─── Live GitHub stats ───
+  var EXCLUDED_REPOS = [
+    'blis','SuiteSparse','meshio','ParaView','pyNastran','PrePoMax',
+    'OpenRadioss','libflame','elmerfem','fenris','olmocr','petsc',
+    'nautilus_trader','barter-rs','RustQuant','eigent','python-docs-samples',
+    'FastAPI-on-DO-App-Platform','zornade-parcel-downloader','anncsu_loader',
+    'api.bdp.giustizia.it','api.lsg.giustizia.it','api.pda.giustizia.it',
+    'api.procedureconcorsuali.giustizia.it','api.servizipst.giustizia.it',
+    'api.smart.giustizia.it','api.albocrisiimpresa.giustizia.it',
+    'giustizia_predittiva','RolmOCR','portfolio_manager','legaltech',
+    'aecs4u.github.io','realestates.aecs4u.it','api.aecs4u.it',
+    'api.gdp.giustizia.it','openclaw.ai',
+    'chrome-extension-policies','thriftycoder','woob','deduplikate'
+  ];
+
+  function fetchGitHubStats() {
+    var page = 1;
+    var allRepos = [];
+
+    function fetchPage() {
+      var url = 'https://api.github.com/orgs/aecs4u/repos?per_page=100&page=' + page;
+      fetch(url)
+        .then(function (res) { return res.json(); })
+        .then(function (repos) {
+          if (!Array.isArray(repos)) return applyStats(allRepos);
+          allRepos = allRepos.concat(repos);
+          if (repos.length === 100) { page++; fetchPage(); }
+          else applyStats(allRepos);
+        })
+        .catch(function () { /* keep static fallback values */ });
+    }
+
+    function applyStats(repos) {
+      var relevant = repos.filter(function (r) {
+        return EXCLUDED_REPOS.indexOf(r.name) === -1;
+      });
+      var langs = {};
+      relevant.forEach(function (r) {
+        if (r.language) langs[r.language] = true;
+      });
+      var repoCount = relevant.length;
+      var langCount = Object.keys(langs).length;
+
+      // Update data-count attributes (animation will use these)
+      var els = document.querySelectorAll('.stat-number[data-count]');
+      els.forEach(function (el) {
+        var label = el.parentElement.querySelector('.stat-label');
+        if (!label) return;
+        var key = label.getAttribute('data-i18n') || '';
+        if (key === 'stat_repos') el.setAttribute('data-count', repoCount);
+        else if (key === 'stat_languages') el.setAttribute('data-count', langCount);
+      });
+    }
+
+    fetchPage();
+  }
+
+  if (typeof fetch !== 'undefined') fetchGitHubStats();
 
   // ─── Counter animation for hero stats ───
   var statNumbers = document.querySelectorAll('.stat-number[data-count]');

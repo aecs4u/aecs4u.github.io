@@ -28,10 +28,11 @@
   <meta name="twitter:description" content="Software for auction intelligence, cadastral workflows, NPL management, legal operations, and open-source infrastructure.">
   <meta name="twitter:image" content="https://aecs4u.github.io/og-image.png">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <!-- Fonts (self-hosted) -->
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(fonts/inter-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Source Serif 4'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/source-serif-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  </style>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -82,6 +83,9 @@
         <li><a href="#open-source" data-i18n="nav_opensource">Open Source</a></li>
         <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
+      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" id="dark-icon"></i>
+      </button>
       <div class="lang-switcher" id="lang-switcher">
         <button class="lang-current" id="lang-current" aria-label="Change language" aria-controls="lang-dropdown" aria-expanded="false" aria-haspopup="true">
           <span class="lang-flag" id="lang-flag"></span>
